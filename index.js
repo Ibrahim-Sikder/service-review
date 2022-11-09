@@ -30,6 +30,16 @@ try{
     const result = await reviewCollection.insertOne(review);
     res.send(result)
    })
+
+   // get review api 
+   app.get('/review', async (req, res)=>{
+    const query = {};
+    const cursor = reviewCollection.find(query);
+    const review = await cursor.toArray();
+    res.send(review)
+   })
+
+
    // for home page service find  query
     app.get('/services', async(req, res)=>{
         const query = {} 
