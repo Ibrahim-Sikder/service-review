@@ -33,11 +33,24 @@ try{
 
    // get review api 
    app.get('/review', async (req, res)=>{
-    const query = {};
+    let query = {};
+    if(req.query.email){
+        query = {
+            email: req.query.email 
+        }
+    }
     const cursor = reviewCollection.find(query);
     const review = await cursor.toArray();
     res.send(review)
    })
+
+   // add service api 
+   app.post('/addService', async (req, res)=>{
+    const review = req.body ;
+    const result = await reviewCollection.insertOne(addServices);
+    res.send(result)
+   })
+
 
 
    // for home page service find  query
