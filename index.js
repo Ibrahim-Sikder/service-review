@@ -94,7 +94,7 @@ run().catch(err=>console.log(err))
 // Default server running
 
 app.get('/', (req, res)=>{
-    res.send('Food service client project running !!')
+    res.send('Food service project running !!')
 })
 
 app.listen(port, ()=>{
